@@ -5,9 +5,8 @@ import java.util.Vector;
 
 public class CompressAndDecompress {
     public int[][] Compress(String imgPath, int codeBookSize) throws IOException {
-//        File f = new File("F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\codebook.txt");
         BufferedWriter bw = new BufferedWriter(
-                new FileWriter("F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\codebook.txt"));
+                new FileWriter("F:\\codebook.txt"));
         ReadAndWriteImage RW = new ReadAndWriteImage();
 
         System.out.println(codeBookSize);
@@ -15,19 +14,8 @@ public class CompressAndDecompress {
         int [][] image = new int[RW.getHeight()][RW.getWidth()];
         Vector<Integer> pixels = get_All_Pixels_Of_Image_In_one_Vector(imageMatrix);
         System.out.println(pixels.size());
-//        for (int pix:
-//             pixels) {
-//            System.out.println(pix);
-//        }
         Vector<Association> associations1 = Quantize(pixels, codeBookSize);
         System.out.println(associations1.size());
-
-
-//        Association ad = new Association();
-//        for (int i = 0; i < associations1.size(); i++) {
-////            Association ad = new Association();
-//            bw.write(i + "|" + ad.pixel + "|" + associations1.get(i0)get_min_pixel_in_association(ad.Associated_pixels) + "|" + get_max_pixel_in_association(ad.Associated_pixels) + "\n");
-//        }
 
         Map<Integer, Vector<Integer>> map = new TreeMap<>();
 
@@ -67,12 +55,6 @@ public class CompressAndDecompress {
                 }
             }
         }
-        /*for (int y = 0; y < RW.height; y++) {
-            for (int x = 0; x < RW.width; x++) {
-                System.out.print(image[x][y] + "    ");
-            }
-            System.out.println();
-        }*/
         return image;
     }
     void decompress(int[][] imageMatrix,String imageoutPath) throws IOException {
@@ -126,7 +108,6 @@ public class CompressAndDecompress {
 
     Vector<Association> Associate(Vector<Integer> pixels/**All image pixels**/, Vector<Association> vector)
     {
-//        int noOfPixels_in_Association_vec = vector.size();
         int min_MSE_index;
         Vector<Association> associations = new Vector<>();
         Association as;
@@ -135,17 +116,13 @@ public class CompressAndDecompress {
             as.pixel = vector.get(i).pixel;
             associations.add(as);
         }
-        /*for (int i = 0; i < noOfPixels_in_Association_vec; i++) {
-            as.pixel
-        }*/
+
         int cur_pixel;
 
         for (int j = 0; j < pixels.size(); j++) {
             //Put the pixel to which have MSE
             cur_pixel = pixels.get(j);
             min_MSE_index = get_min_MSE_index(cur_pixel, vector);
-//            as = new Association();
-//            as.pixel = vector.get(min_MSE_index).pixel;
             try {
                 associations.get(min_MSE_index).Associated_pixels.add(cur_pixel);
             }
@@ -173,15 +150,6 @@ public class CompressAndDecompress {
         return allSplited;
     }
 
-    /*Vector<Integer> Split(int pix)
-    {
-        Vector<Integer> leftAndRight = new Vector<>();
-        int left = pix; // Floor
-        int right = pix + 1; // Ceil
-        leftAndRight.add(left);
-        leftAndRight.add(right);
-        return leftAndRight;
-    }*/
     int get_mean_squared_error_pixel(int pix1, int pix2)
     {
         int MSE;
@@ -220,29 +188,17 @@ public class CompressAndDecompress {
         Vector<Association> cur_associasions = new Vector<>();
         first.Associated_pixels = pixels;
         associations.add(first);
-//        Avgs.addAll(generateAveragePixels(associations));
-//        first.pixel = Avgs.get(0);
         int levelPixels = 1;
-//        new_Avg.get(0).Associated_pixels = association.Associated_pixels;
         while (levelPixels <= codeBookSize)
         {
             Avgs = new Vector<>();
-//            associations = new Vector<>();
             Avgs.addAll(generateAveragePixels(associations));
-//            associations.clear();
-//            new_Avg.set(0, association);
-//            for (int i = 0; i < Avgs.size(); i++) {
-//                new_Avg.get(i).Associated_pixels.add(Avgs.get(i));
                 association.Associated_pixels.addAll(Avgs);
                 new_Avg.add(association);
-//                new_Avg.get(i).Associated_pixels.add(association.pixel);
-//            }
             Splited = new Vector<>();
             associations = new Vector<>();
 
-//            for (int j = 0; j < levelPixels; j++) {
                 Splited.addAll(Split(new_Avg.get(0).Associated_pixels));
-//            }
             for (Integer Associated:
                  Splited) {
                 association = new Association();
@@ -250,19 +206,10 @@ public class CompressAndDecompress {
                 cur_associasions.add(association);
             }
 
-//            for (int j = 0; j < levelPixels; j++) {
                 associations.addAll(Associate(pixels, cur_associasions));
-//            }
-//            associations.clear();
-//            Splited.clear();
-//            Avgs.clear();
-//            associations = (Associate(Splited, associations));
-//            }
             levelPixels *= 2;
             cur_associasions = new Vector<>();
             new_Avg = new Vector<>();
-//            association = new Association();
-//            associations = new Vector<>();
         }
         return associations;
     }
