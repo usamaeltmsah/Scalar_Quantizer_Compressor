@@ -34,10 +34,6 @@ public class CompressAndDecompress {
             {
                 System.err.println(e);
             }
-            /*System.out.println(ad.pixel);
-            System.out.println("min: " + get_min_pixel_in_association(ad.Associated_pixels));
-            System.out.println("max: " + get_max_pixel_in_association(ad.Associated_pixels));
-//                System.out.println(ad.Associated_pixels);*/
             i++;
         }
         bw.close();
@@ -59,7 +55,7 @@ public class CompressAndDecompress {
     }
     void decompress(int[][] imageMatrix,String imageoutPath) throws IOException {
         BufferedReader br = new BufferedReader(
-                new FileReader("F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\codebook.txt"));
+                new FileReader("F:\\codebook.txt"));
         ReadAndWriteImage RW = new ReadAndWriteImage();
 
 
