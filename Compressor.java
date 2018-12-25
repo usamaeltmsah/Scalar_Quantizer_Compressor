@@ -13,7 +13,6 @@ public class Compressor extends JFrame{
 
 
     OpenFile of;
-//    ReadAndWriteImage rf = new ReadAndWriteImage();
 
     public Compressor() {
         CompressAndDecompress CommAndDecomm = new CompressAndDecompress();
@@ -35,17 +34,6 @@ public class Compressor extends JFrame{
                 {
                     System.out.println(e1);
                 }
-
-//                vector v = new vector();
-//                v.width = Integer.parseInt(vectorWidth.getValue().toString());
-//                v.height = Integer.parseInt(vectorHight.getValue().toString());
-
-//                System.out.println(v.width);
-//                System.out.println(v.height);
-
-
-//                int[][] imagMatrix = RW.readImage(of.getFilePath());
-//                RW.writeImage(imagMatrix,"E:\\my phone\\2017_new.jpg");
             }
 
         });
@@ -59,7 +47,7 @@ public class Compressor extends JFrame{
                     int bookSize = Integer.parseInt(codeBookSize.getValue().toString());
                     System.out.println(bookSize);
                     int[][] imagMatrix = CommAndDecomm.Compress(of.getFilePath(), bookSize);
-                    RW.writeImage(imagMatrix,"F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\2017_new.jpg");
+                    RW.writeImage(imagMatrix,"F:\\2018_new.jpg");
                     BufferedWriter writer = new BufferedWriter(new FileWriter(of.getFilePath()));
                     writer.close();
 
