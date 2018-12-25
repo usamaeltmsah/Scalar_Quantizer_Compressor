@@ -3,10 +3,7 @@ import java.io.File;
 
 public class OpenFile {
     JFileChooser fileChooser = new JFileChooser();
-//    StringBuilder sb = new StringBuilder();
     File file;
-//    public OpenFile(){}
-
     public String getFilePath() {
         String path = fileChooser.getSelectedFile().getAbsolutePath();
         return path;
@@ -24,9 +21,7 @@ public class OpenFile {
             file = fileChooser.getSelectedFile();
 
             String path= fileChooser.getSelectedFile().getAbsolutePath();
-//            String filename= fileChooser.getSelectedFile().getName();
             System.out.println(path);
-//            Scanner input = new Scanner(file);
         }
         else
         {
