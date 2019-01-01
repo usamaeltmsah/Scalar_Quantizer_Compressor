@@ -13,7 +13,6 @@ public class Compressor extends JFrame{
 
 
     OpenFile of;
-//    ReadAndWriteImage rf = new ReadAndWriteImage();
 
     public Compressor() {
         CompressAndDecompress CommAndDecomm = new CompressAndDecompress();
@@ -35,17 +34,6 @@ public class Compressor extends JFrame{
                 {
                     System.out.println(e1);
                 }
-
-//                vector v = new vector();
-//                v.width = Integer.parseInt(vectorWidth.getValue().toString());
-//                v.height = Integer.parseInt(vectorHight.getValue().toString());
-
-//                System.out.println(v.width);
-//                System.out.println(v.height);
-
-
-//                int[][] imagMatrix = RW.readImage(of.getFilePath());
-//                RW.writeImage(imagMatrix,"E:\\my phone\\2017_new.jpg");
             }
 
         });
@@ -58,10 +46,6 @@ public class Compressor extends JFrame{
                 {
                     int bookSize = Integer.parseInt(codeBookSize.getValue().toString());
                     int[][] imagMatrix = CommAndDecomm.Compress(of.getFilePath(), bookSize);
-//                    RW.writeImage(imagMatrix,"F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\2017_new.jpg");
-//                    BufferedWriter writer = new BufferedWriter(new FileWriter(of.getFilePath()));
-//                    writer.close();
-
                     JOptionPane.showMessageDialog(null, "File compressed successfully :)");
                 }
                 catch (Exception e1)
@@ -80,15 +64,8 @@ public class Compressor extends JFrame{
 
                     int [][] decomm = CommAndDecomm.decompress(compressedMatrix);
 
-//                    for (int y = 0; y < compressedMatrix.length; y++) {
-//                        for (int x = 0; x < compressedMatrix[0].length; x++) {
-//                            System.out.println(compressedMatrix[y][x]);
-//                        }
-//                    }
                     RW.writeImage(decomm, "F:\\FCI\\FCIL3 T1\\IT433 - Multimedia\\Assignments\\scalarQuantizer\\cool_football_in_high_definition_picture_of_5_168193_decomm.png");
 
-//                    BufferedWriter writer = new BufferedWriter(new FileWriter(of.getFilePath()));
-//                    writer.close();
                     JOptionPane.showMessageDialog(null, "File decompressed successfully :)");
                 }
                 catch (Exception e1)
