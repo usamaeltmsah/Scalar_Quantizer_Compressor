@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Compressor">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="10" width="650" height="423"/>
+    </constraints>
+    <properties>
+      <enabled value="true"/>
+      <focusable value="true"/>
+      <minimumSize width="500" height="400"/>
+      <preferredSize width="200" height="200"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="d848e" class="javax.swing.JButton" binding="decompressButton" default-binding="true">
+        <constraints border-constraint="East"/>
+        <properties>
+          <background color="-16777216"/>
+          <enabled value="true"/>
+          <font name="Arial Black" size="17" style="1"/>
+          <foreground color="-458753"/>
+          <text value="Decompress"/>
+        </properties>
+      </component>
+      <component id="ca06c" class="javax.swing.JButton" binding="compressButon">
+        <constraints border-constraint="West"/>
+        <properties>
+          <background color="-4517632"/>
+          <enabled value="true"/>
+          <font name="Arial Black" size="18" style="1"/>
+          <foreground color="-1"/>
+          <text value="Compress"/>
+        </properties>
+      </component>
+      <component id="c4895" class="javax.swing.JButton" binding="loadFileButton" default-binding="true">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-1"/>
+          <enabled value="true"/>
+          <font name="Arial Black" size="20" style="1"/>
+          <text value="Load Image"/>
+        </properties>
+      </component>
+      <grid id="dbe39" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="bevel-raised"/>
+        <children>
+          <component id="a3ca4" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <alignmentX value="1.0"/>
+              <alignmentY value="1.0"/>
+              <font size="16"/>
+              <iconTextGap value="4"/>
+              <maximumSize width="20" height="5"/>
+              <minimumSize width="20" height="5"/>
+              <text value="Codebook Size"/>
+            </properties>
+          </component>
+          <component id="d563" class="javax.swing.JSpinner" binding="codeBookSize">
+            <constraints/>
+            <properties>
+              <font size="16"/>
+              <minimumSize width="200" height="40"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
